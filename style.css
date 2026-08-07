@@ -1,0 +1,761 @@
+/* =========================================================
+   CANTINHO DA YASMIN
+   style.css
+========================================================= */
+
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(128, 0, 128, 0.18), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(255, 0, 60, 0.14), transparent 30%),
+        #050505;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BARRA DE SELEÇÃO
+========================================================= */
+
+::selection {
+    background: #8f00ff;
+    color: white;
+}
+
+
+/* =========================================================
+   HERO / TELA INICIAL
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.85)
+        ),
+        radial-gradient(
+            circle at center,
+            rgba(111, 0, 255, 0.35),
+            transparent 50%
+        );
+}
+
+
+/* Brilho vermelho no fundo */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: #7a00ff;
+
+    border-radius: 50%;
+
+    filter: blur(180px);
+
+    opacity: 0.25;
+
+    animation: floatingGlow 7s ease-in-out infinite alternate;
+}
+
+
+/* Segundo brilho */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    background: #ff003c;
+
+    border-radius: 50%;
+
+    filter: blur(170px);
+
+    opacity: 0.18;
+
+    right: -150px;
+    bottom: -100px;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 900px;
+
+    animation: fadeUp 1.5s ease;
+}
+
+
+.small-title {
+    color: #b98cff;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #ff3b62,
+        #b05cff,
+        #ffffff
+    );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: gradientText 6s ease infinite;
+}
+
+
+.subtitle {
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    color: #cfcfcf;
+
+    font-size: 1.1rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.button {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 0, 60, 0.85),
+            rgba(110, 0, 255, 0.85)
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 0 20px rgba(255, 0, 80, 0.25);
+}
+
+
+.button:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 0 30px rgba(255, 0, 80, 0.45),
+        0 0 50px rgba(120, 0, 255, 0.25);
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 120px 0;
+}
+
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+
+.section-title span {
+    color: #ff315b;
+
+    font-size: 1.3rem;
+
+    text-shadow:
+        0 0 15px #ff174c;
+}
+
+
+.section-title h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #c66cff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.section-description {
+    text-align: center;
+
+    color: #999;
+
+    margin-bottom: 50px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONTADOR DE VIDA
+========================================================= */
+
+.life-section {
+    text-align: center;
+}
+
+
+.life-counter {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 15px;
+
+    margin-top: 50px;
+}
+
+
+.time-box {
+    padding: 30px 15px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.07),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+}
+
+
+.time-box:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(170, 70, 255, 0.5);
+
+    box-shadow:
+        0 10px 35px rgba(100, 0, 255, 0.18);
+}
+
+
+.time-box span {
+    display: block;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+
+    font-weight: bold;
+
+    color: white;
+}
+
+
+.time-box small {
+    color: #a66cff;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   SOBRE
+========================================================= */
+
+.about-card {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+    padding: 30px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 0, 60, 0.05),
+            rgba(120, 0, 255, 0.08)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.about-photo {
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    aspect-ratio: 4 / 5;
+}
+
+
+.about-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.6s;
+}
+
+
+.about-photo:hover img {
+    transform: scale(1.06);
+}
+
+
+.about-text h3 {
+    font-size: 2.5rem;
+
+    margin-bottom: 20px;
+
+    color: #ff4269;
+}
+
+
+.about-text p {
+    color: #bdbdbd;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   GALERIAS
+========================================================= */
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+.photo-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    aspect-ratio: 1 / 1;
+
+    background: #111;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.photo-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.4),
+            transparent
+        );
+
+    opacity: 0;
+
+    transition: 0.3s;
+}
+
+
+.photo-card:hover::after {
+    opacity: 1;
+}
+
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.5s;
+}
+
+
+.photo-card:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   MÚSICAS
+========================================================= */
+
+.music-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    max-width: 850px;
+
+    margin: auto;
+}
+
+
+.music-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: 0.3s;
+}
+
+
+.music-card:hover {
+    transform: translateX(8px);
+
+    background:
+        rgba(130, 0, 255, 0.08);
+
+    border-color:
+        rgba(170, 70, 255, 0.3);
+}
+
+
+.music-card img {
+    width: 75px;
+    height: 75px;
+
+    border-radius: 15px;
+
+    object-fit: cover;
+}
+
+
+.music-info {
+    flex: 1;
+}
+
+
+.music-info h3 {
+    margin-bottom: 6px;
+
+    font-size: 1.1rem;
+}
+
+
+.music-info p {
+    color: #999;
+
+    font-size: 0.9rem;
+}
+
+
+.music-icon {
+    font-size: 1.5rem;
+
+    color: #ff315b;
+
+    margin-right: 10px;
+}
+
+
+/* =========================================================
+   FILMES E SÉRIES
+========================================================= */
+
+.media-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.media-card {
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: 0.4s;
+}
+
+
+.media-card:hover {
+    transform: translateY(-10px);
+
+    border-color:
+        rgba(255, 50, 100, 0.35);
+
+    box-shadow:
+        0 15px 40px rgba(255, 0, 70, 0.12);
+}
+
+
+.media-card img {
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.media-card h3 {
+    padding: 20px;
+
+    font-size: 1rem;
+
+    text-align: center;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   COMIDAS
+========================================================= */
+
+.food-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.food-card {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.02)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: 0.3s;
+}
+
+
+.food-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(170, 70, 255, 0.4);
+}
+
+
+.food-card span {
+    display: block;
+
+    font-size: 4rem;
+
+    margin-bottom: 15px;
+}
+
+
+.food-card h3 {
+    font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   FRASES
+========================================================= */
+
+.quotes-section {
+    text-align: center;
+}
+
+
+.quote-container {
+    max-width: 800px;
+
+    margin: 50px auto 30px;
+
+    padding: 50px 30px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 0, 60, 0.07),
+            rgba(120, 0, 255, 0.1)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.quote-container p {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+
+    font-style: italic;
+
+    margin-bottom: 20px;
+
+    line-height: 1.5;
+}
+
+
+.quote-container span {
+    color: #a66cff;
+}
+
+
+/* =========================================================
+   SEÇÃO FINAL
+========================================================= */
+
+.final-section {
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text
